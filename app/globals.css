@@ -31,8 +31,11 @@ h2 {
   font-size: 32px;
 }
 
-p, span, a, li {
+p, a, li {
   font-family: var(--font-serif);
+}
+span {
+  font-family: var(--font-serif-sc);
 }
 
 p {

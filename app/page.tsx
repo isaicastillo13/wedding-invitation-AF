@@ -6,6 +6,8 @@ import Date from "@/components/invitation/Date";
 import Ceremonia from "@/components/invitation/Ceremonia";
 import Recepcion from "@/components/invitation/Recepcion";
 import Moments from "@/components/invitation/Moments";
+import DressCode from "@/components/invitation/DressCode";
+import Regalos from "@/components/invitation/Regalos";
 
 
 export default function HomePage() {
@@ -23,6 +25,10 @@ export default function HomePage() {
       <Recepcion />
       <Separador style={{ marginTop: 10, marginBottom: 10 }} />
       <Moments />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <DressCode />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <Regalos />
       <Separador style={{ marginTop: 10, marginBottom: 10 }} />
       {/* <EventDetails /> */}
       {/* <Gifts /> */}
