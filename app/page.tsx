@@ -1,19 +1,31 @@
 import Hero from "@/components/invitation/Hero";
-import Intro from "@/components/invitation/Intro";
-import EventDetails from "@/components/invitation/EventDetails";
+import Cita from "@/components/invitation/Cita";
+import Line from "@/components/ui/line";
+import Mensaje from "@/components/invitation/Mensaje";
+import Date from "@/components/invitation/Date";
+import Ceremonia from "@/components/invitation/Ceremonia";
+import Recepcion from "@/components/invitation/Recepcion";
 import Moments from "@/components/invitation/Moments";
-import Gifts from "@/components/invitation/Gifts";
-import Closing from "@/components/invitation/Closing";
+
 
 export default function HomePage() {
   return (
     <main>
       <Hero />
-      <Intro />
-      <EventDetails />
-      <Moments />
-      <Gifts />
-      <Closing />
+      <Cita />
+      <Line style={{ marginTop: 10, marginBottom: 10 }} />
+      <Mensaje />
+      <Line style={{ marginTop: 10, marginBottom: 10 }} />
+      <Date />
+      <Line style={{ marginTop: 10, marginBottom: 10 }} />
+      <Ceremonia />
+      <Line style={{ marginTop: 10, marginBottom: 10 }} />
+      <Recepcion />
+      <Line style={{ marginTop: 10, marginBottom: 10 }} />
+      {/* <EventDetails /> */}
+      {/* <Moments /> */}
+      {/* <Gifts /> */}
+      {/* <Closing /> */}
     </main>
   );
 }

@@ -14,33 +14,24 @@ export default function Hero() {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="/images/DSC02645.JPG"
+            src="/images/IMG_6973.jpeg"
             alt="Wedding"
-            className="object-cover w-full h-full scale-125"
+            className="object-cover object-[60%_center] w-full h-full"
           />
-          {/* Mascara oscura */}
-          <div className="absolute inset-0 bg-black opacity-30" />
+          {/* Mascara en gradiente de arriba hacia abajo */}
+          <div className="absolute inset-0 bg-gradient-to-b from-wedding-dark/60 to-transparent" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-start h-full px-6 py-20 text-center text-wedding-light">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-[10px] uppercase tracking-[0.5em] opacity-80"
-          >
-            Un sí para toda la vida
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mt-4 text-6xl leading-tight tracking-wide"
+            className="mt-4 text-5xl leading-tight tracking-wide"
           >
-            Yasmin <br /> & George
+            Maria Alejandra <br /> y <br /> Franklin
           </motion.h1>
-
         </div>
       </section>
     </motion.div>

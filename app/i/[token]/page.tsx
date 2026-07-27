@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Hero from "@/components/invitation/Hero";
-import Intro from "@/components/invitation/Intro";
+import Intro from "@/components/invitation/Cita";
 import Countdown from "@/components/invitation/Countdown";
 import EventDetails from "@/components/invitation/EventDetails";
 import RSVP from "@/components/invitation/RSVP";

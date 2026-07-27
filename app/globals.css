@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-wedding-primary: #997b6f;
-  --color-wedding-secondary: #b69a8e;
-  --color-wedding-accent: #d3c1b5;
-  --color-wedding-light: #ede4dd;
-  --color-wedding-warm: #E1DBCE;
-  --color-wedding-dark: #2a2220;
+  --color-wedding-primary: #E6D7C3;
+  --color-wedding-accent: #B96F7D;
+  --color-wedding-light: #F7F4EF;
+  --color-wedding-warm: #D8CCC0;
+  --color-wedding-dark: #3B3029;
   --font-script: var(--font-script);
   --font-serif: var(--font-serif);
-  --font-sans: var(--font-sans);
+  --font-serif-sc: var(--font-serif-sc);
 }
 
 html {
@@ -25,8 +24,19 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-script);
 }
 
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 32px;
+}
+
 p, span, a, li {
   font-family: var(--font-serif);
+}
+
+p {
+  font-size: 16px;
 }
 
 html,
