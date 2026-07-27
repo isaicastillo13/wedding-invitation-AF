@@ -14,12 +14,12 @@ export default function Hero() {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="/images/IMG_6973.jpeg"
+            src="/images/hero-cover.jpeg"
             alt="Wedding"
             className="object-cover object-[60%_center] w-full h-full"
           />
           {/* Mascara en gradiente de arriba hacia abajo */}
-          <div className="absolute inset-0 bg-gradient-to-b from-wedding-dark/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-b from-wedding-dark/60 to-transparent" />
         </div>
 
         {/* Content */}

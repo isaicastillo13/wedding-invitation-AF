@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import ParroquiaImg from "@/public/images/AA9D510A-7E36-4F39-BF71-9A53380E8FC5-removebg.png";
+import Parroquia from "@/public/images/venue-ceremony.png";
+import Map_marker from "@/public/map_marker.svg";
 
 const MotionImage = motion(Image);
 
@@ -39,7 +40,7 @@ export default function Intro() {
           Parroquia Jesús de la Divina Misericordia
         </motion.p>
         <Image
-          src={ParroquiaImg}
+          src={Parroquia}
           alt="Ceremonia"
           width={350}
           height={350}
@@ -53,9 +54,9 @@ export default function Intro() {
           href="https://www.google.com/maps/search/?api=1&query=Hotel+Contempo"
           target="_blank"
           rel="noreferrer"
-          className="inline-block w-11/12 px-6 py-3 mt-6 font-semibold text-white transition rounded-lg bg-wedding-dark hover:bg-wedding-dark/90"
+          className="flex justify-center gap-2 py-3 mt-6 text-white transition rounded-lg justify-center1/12 bg-wedding-dark hover:bg-wedding-dark/90"
         >
-          Ver ubicación de la ceremonia
+          Ver ubicación de la ceremonia <Image src={Map_marker} alt="icono map marker" width={16} height={16}/>
         </motion.a>
       </div>
     </section>

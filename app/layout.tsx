@@ -22,7 +22,7 @@ const marcellusSC = Baskervville_SC({
 });
 
 export const metadata: Metadata = {
-  title: "Boda Yasmin & George",
+  title: "Boda Maria Alejandra y Franklin",
   description: "Nuestro amor nos lleva al altar",
 };
 

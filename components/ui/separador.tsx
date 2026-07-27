@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties } from "react";
-import LineImage from "@/public/Line.png";
+import LineImage from "@/public/separador.png";
 
 type LineProps = {
   style?: CSSProperties;

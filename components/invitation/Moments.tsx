@@ -12,17 +12,17 @@ export default function Moments() {
       className="flex flex-col items-center justify-center"
     >
       <img
-        src="/images/DSC02573.JPG"
-        alt="Yasmin y George"
+        src="/images/couple-moment-09.jpeg"
+        alt="Momento 1"
         className="object-cover w-full"
       />
       <img
-        src="/images/DSC02633.JPG"
+        src="/images/couple-moment-07.jpeg"
         alt="Momento 2"
         className="object-cover w-full"
       />
       <img
-        src="/images/DSC02547.JPG"
+        src="/images/couple-moment-01.jpeg"
         alt="Momento 3"
         className="object-cover w-full"
       />

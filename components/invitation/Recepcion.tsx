@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import HotelImg from "@/public/images/8EDFDA1A-BECA-4342-8926-C917DD3C49E4-removebg-preview.png";
+import Hotel from "@/public/images/venue-reception-cutout.png";
+import Map_marker from "@/public/map_marker.svg";
 
 const MotionImage = motion(Image);
 
@@ -39,7 +40,7 @@ export default function Intro() {
           Hotel Contempo
         </motion.p>
         <Image
-          src={HotelImg}
+          src={Hotel}
           alt="Ceremonia"
           width={350}
           height={350}
@@ -53,11 +54,16 @@ export default function Intro() {
           href="https://www.google.com/maps/search/?api=1&query=Hotel+Contempo"
           target="_blank"
           rel="noreferrer"
-          className="inline-block w-11/12 px-6 py-3 mt-6 font-semibold text-white transition rounded-lg bg-wedding-dark hover:bg-wedding-dark/90"
+          className="flex justify-center gap-2 py-3 mt-6 text-white transition rounded-lg justify-center1/12 bg-wedding-dark hover:bg-wedding-dark/90"
         >
-          Ver ubicación de la recepción
+          Ver ubicación de la ceremonia{" "}
+          <Image
+            src={Map_marker}
+            alt="icono map marker"
+            width={16}
+            height={16}
+          />
         </motion.a>
-        
       </div>
     </section>
   );
