@@ -17,7 +17,7 @@ export default function Intro() {
           transition={{ delay: 0.25, duration: 0.7 }}
           className="max-w-sm my-8 leading-7 text-wedding-dark/75"
         >
-          Codigo de vestimenta
+          Código de vestimenta
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 18 }}

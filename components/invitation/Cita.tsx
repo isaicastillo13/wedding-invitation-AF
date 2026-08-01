@@ -14,7 +14,7 @@ export default function Intro() {
           transition={{ delay: 0.25, duration: 0.7 }}
           className="max-w-sm my-8 leading-7 text-wedding-dark/75"
         >
-          El amor es paciente, es servicial. El amor no es envidioso, no hace alarde, no se envanece, no procede con bajeza ni busca su propio interés, no se irrita y no tiene en cuenta el mal recibido, no se alegra de la injusticia, sino que se regocija con la verdad. El amor todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta. <b className="font-black">El amor no pasará jamás.</b>
+          El amor es paciente, es servicial. El amor no es envidioso, no hace alarde, no se envanece, no procede con bajeza ni busca su propio interés, no se irrita y no tiene en cuenta el mal recibido, no se alegra de la injusticia, sino que se regocija con la verdad. El amor todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta. <br /><b className="font-black">El amor no pasará jamás.</b>
         </motion.p>
 
         <motion.h2
