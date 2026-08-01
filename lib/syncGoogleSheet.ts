@@ -1,14 +1,11 @@
 type SheetPayload = {
-  Nombre: string;
+  Codigo: string;
+  "Nombre de la Familia": string;
   "Puestos Asignados": number;
   Estado: string;
-  "Abrio Invitacion": string;
-  "Fecha Apertura": string;
-  Asistencia: string;
   "Puestos Confirmados": number;
-  Mensaje: string;
+  "Invitados Asistentes": string;
   "Fecha Respuesta": string;
-  Token: string;
   Link: string;
 };
 

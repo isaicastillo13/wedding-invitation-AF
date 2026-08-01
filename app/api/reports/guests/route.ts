@@ -3,35 +3,36 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const guests = await prisma.guest.findMany({
+    const invitaciones = await prisma.invitacion.findMany({
       include: {
-        rsvp: true,
+        invitados: { orderBy: { orden: "asc" } },
       },
       orderBy: {
-        name: "asc",
+        nombreFamilia: "asc",
       },
     });
 
-    const report = guests.map((guest) => ({
-      nombre: guest.name,
-      puestosAsignados: guest.passes,
-      estado: guest.status,
-      abrioInvitacion: guest.hasOpened ? "Sí" : "No",
-      fechaApertura: guest.openedAt,
-      asistencia: guest.rsvp
-        ? guest.rsvp.attending
-          ? "Sí"
-          : "No"
-        : "Sin respuesta",
-      puestosConfirmados: guest.rsvp?.attendeesCount ?? 0,
-      mensaje: guest.rsvp?.message ?? "",
-      fechaRespuesta: guest.rsvp?.createdAt ?? null,
-      token: guest.token,
-      link: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/i/${guest.token}`,
+    const report = invitaciones.map((invitacion) => ({
+      codigo: invitacion.codigo,
+      nombreFamilia: invitacion.nombreFamilia,
+      puestosAsignados: invitacion.cantidadPuestos,
+      estado: invitacion.estado,
+      puestosConfirmados: invitacion.cantidadConfirmada,
+      fechaConfirmacion: invitacion.fechaConfirmacion,
+      telefono: invitacion.telefono,
+      mesa: invitacion.mesa,
+      invitados: invitacion.invitados.map((invitado) => ({
+        nombre: invitado.nombreCompleto,
+        esPrincipal: invitado.esPrincipal,
+        asistira: invitado.asistira,
+        restriccionAlimentaria: invitado.restriccionAlimentaria,
+        observaciones: invitado.observaciones,
+      })),
+      link: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/i/${invitacion.codigo}`,
     }));
 
     return NextResponse.json(report);
-  }   catch (error) {
+  } catch (error) {
     console.error("REPORT_ERROR:", error);
 
     return NextResponse.json(

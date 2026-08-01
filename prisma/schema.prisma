@@ -4,32 +4,47 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-model Guest {
-  id             String   @id @default(uuid())
-  name           String
-  phone          String?
-  email          String?
-  token          String   @unique
-  passes         Int      @default(1)
-  tableNumber    Int?
-  status         String   @default("pending")
-  hasOpened      Boolean  @default(false)
-  openedAt       DateTime?
-  confirmedAt    DateTime?
-  declinedAt     DateTime?
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  rsvp           RSVP?
 }
 
-model RSVP {
-  id              String   @id @default(uuid())
-  guestId         String   @unique
-  guest           Guest    @relation(fields: [guestId], references: [id])
-  attending       Boolean
-  attendeesCount  Int
-  message         String?
-  createdAt       DateTime @default(now())
+enum EstadoInvitacion {
+  pendiente
+  confirmada
+  no_asiste
+
+  @@map("estado_invitacion")
+}
+
+model Invitacion {
+  id                      String            @id @default(uuid()) @db.Uuid
+  codigo                  String            @unique
+  nombreFamilia           String?           @map("nombre_familia")
+  cantidadPuestos         Int               @default(1) @map("cantidad_puestos")
+  estado                  EstadoInvitacion  @default(pendiente)
+  cantidadConfirmada      Int               @default(0) @map("cantidad_confirmada")
+  telefono                String?           @map("telefono")
+  mesa                    String?           @map("mesa")
+  observacionesInternas   String?           @map("observaciones_internas")
+  fechaLimiteConfirmacion DateTime?         @map("fecha_limite_confirmacion") @db.Date
+  fechaConfirmacion       DateTime?         @map("fecha_confirmacion") @db.Timestamptz(6)
+  createdAt               DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt               DateTime          @updatedAt @map("updated_at") @db.Timestamptz(6)
+  invitados               Invitado[]
+
+  @@map("invitaciones")
+}
+
+model Invitado {
+  id                     String     @id @default(uuid()) @db.Uuid
+  invitacionId           String     @map("invitacion_id") @db.Uuid
+  invitacion             Invitacion @relation(fields: [invitacionId], references: [id], onDelete: Cascade)
+  nombreCompleto         String     @map("nombre_completo")
+  asistira               Boolean?   @map("asistira")
+  esPrincipal            Boolean    @default(false) @map("es_principal")
+  restriccionAlimentaria String?    @map("restriccion_alimentaria")
+  observaciones          String?    @map("observaciones")
+  orden                  Int        @default(1) @map("orden")
+  createdAt              DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime   @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("invitados")
 }

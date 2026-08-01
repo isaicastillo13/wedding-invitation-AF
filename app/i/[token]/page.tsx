@@ -1,8 +1,15 @@
 import { prisma } from "@/lib/prisma";
 import Hero from "@/components/invitation/Hero";
-import Intro from "@/components/invitation/Cita";
+import Cita from "@/components/invitation/Cita";
+import Separador from "@/components/ui/separador";
+import Mensaje from "@/components/invitation/Mensaje";
+import Date from "@/components/invitation/Date";
+import Ceremonia from "@/components/invitation/Ceremonia";
+import Recepcion from "@/components/invitation/Recepcion";
 import Moments from "@/components/invitation/Moments";
-import { syncGoogleSheet } from "@/lib/syncGoogleSheet";
+import DressCode from "@/components/invitation/DressCode";
+import Regalos from "@/components/invitation/Regalos";
+import RSVP from "@/components/invitation/RSVP";
 
 export default async function InvitationPage({
   params,
@@ -11,14 +18,14 @@ export default async function InvitationPage({
 }) {
   const { token } = await params;
 
-  const guest = await prisma.guest.findUnique({
-    where: { token },
+  const invitacion = await prisma.invitacion.findUnique({
+    where: { codigo: token },
     include: {
-      rsvp: true,
+      invitados: { orderBy: { orden: "asc" } },
     },
   });
 
-  if (!guest) {
+  if (!invitacion) {
     return (
       <main className="flex items-center justify-center min-h-screen px-6 text-center bg-wedding-light text-wedding-dark">
         <div>
@@ -31,48 +38,26 @@ export default async function InvitationPage({
     );
   }
 
-  if (!guest.hasOpened) {
-    const openedAt = new Date();
-
-    await prisma.guest.update({
-      where: { id: guest.id },
-      data: {
-        hasOpened: true,
-        openedAt,
-        status: "opened",
-      },
-    });
-
-    await syncGoogleSheet({
-      Nombre: guest.name,
-      "Puestos Asignados": guest.passes,
-      Estado: "opened",
-      "Abrio Invitacion": "Sí",
-      "Fecha Apertura": openedAt.toISOString(),
-      Asistencia: guest.rsvp
-        ? guest.rsvp.attending
-          ? "Sí"
-          : "No"
-        : "Sin respuesta",
-      "Puestos Confirmados": guest.rsvp?.attendeesCount ?? 0,
-      Mensaje: guest.rsvp?.message ?? "",
-      "Fecha Respuesta": guest.rsvp?.createdAt
-        ? guest.rsvp.createdAt.toISOString()
-        : "",
-      Token: guest.token,
-      Link: `${process.env.NEXT_PUBLIC_APP_URL}/i/${guest.token}`,
-    });
-  }
-
   return (
     <main>
       <Hero />
-      <Intro />
-      <EventDetails />
+      <Cita />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <Mensaje />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <Date />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <Ceremonia />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <Recepcion />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
       <Moments />
-      <RSVP guest={guest} />
-      <Gifts />
-      <Countdown />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <DressCode />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <Regalos />
+      <Separador style={{ marginTop: 10, marginBottom: 10 }} />
+      <RSVP invitacion={invitacion} invitados={invitacion.invitados} />
     </main>
   );
 }
