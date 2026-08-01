@@ -32,9 +32,7 @@ export default function Intro() {
           transition={{ delay: 0.25, duration: 0.7 }}
           className="max-w-sm m-8 leading-7 text-wedding-dark/75"
         >
-          Su compañía es el mejor regalo que podemos recibir. Si desean
-          obsequiarnos algo para celebrar esta nueva etapa, aceptamos con mucho
-          cariño un aporte en efectivo.
+          Su compañía es el mejor regalo que podemos recibir. Si desean obsequiarnos algo para celebrar esta nueva etapa, aceptamos con mucho cariño un aporte en efectivo mediante un sobre el día del evento o transferencia.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 18 }}
