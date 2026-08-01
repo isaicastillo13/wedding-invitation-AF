@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { Invitacion, Invitado } from "@prisma/client";
+import send from "@/public/send.svg";
 
 type RSVPProps = {
   invitacion: Invitacion;
@@ -19,7 +21,7 @@ export default function RSVP({ invitacion, invitados }: RSVPProps) {
   const inicial = useMemo(() => {
     const map: Record<string, boolean> = {};
     for (const invitado of invitados) {
-      map[invitado.id] = invitado.asistira ?? true;
+      map[invitado.id] = invitado.asistira ?? false;
     }
     return map;
   }, [invitados]);
@@ -120,7 +122,7 @@ export default function RSVP({ invitacion, invitados }: RSVPProps) {
           <motion.div
             {...motionProps}
             transition={{ delay: 0.35 }}
-            className="mt-8"
+            className="flex flex-col items-center gap-4 mt-8"
           >
             <div className="space-y-3 text-left">
               {invitados.map((invitado) => (
@@ -128,7 +130,7 @@ export default function RSVP({ invitacion, invitados }: RSVPProps) {
                   key={invitado.id}
                   className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointe"
                 >
-                  <span className="italic leading-6 text-wedding-dark">
+                  <span className="italic text-wedding-dark">
                     {invitado.nombreCompleto}
                   </span>
                   <span className="flex items-center gap-2">
@@ -165,10 +167,16 @@ export default function RSVP({ invitacion, invitados }: RSVPProps) {
               type="button"
               onClick={enviar}
               disabled={enviando}
-              className="w-full mt-6 bg-wedding-primary px-8 py-4 text-[11px] uppercase tracking-[0.3em] text-white transition hover:opacity-90 disabled:opacity-50"
+              className="flex justify-center w-11/12 gap-2 py-3 mt-6 font-bold text-white transition rounded-lg bg-wedding-dark hover:bg-wedding-dark/90 disabled:opacity-50 disabled:hover:bg-wedding-dark"
             >
-              {enviando ? "Enviando..." : "Enviar respuesta"}
+              
+              {enviando ? "Enviando..." : "Confirmar asistencia"}
+              <Image src={send} alt="icono enviar" width={16} height={16}/>
+
             </button>
+             <p className="mt-4 text-xs leading-5 text-wedding-dark/50">
+              Si no recibimos su confirmación antes de la fecha indicada, entenderemos con mucho cariño que no podrán acompañarnos. No se preocupen, después les contaremos cómo estuvo la fiesta… ¡y les enseñaremos las fotos para que no se pierdan ningún detalle!
+            </p>
           </motion.div>
         ) : (
           <motion.div
@@ -192,6 +200,8 @@ export default function RSVP({ invitacion, invitados }: RSVPProps) {
                 "Lamentamos que no puedan acompañarnos."
               )}
             </p>
+           
+
             <button
               type="button"
               onClick={() => {
