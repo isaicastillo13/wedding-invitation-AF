@@ -27,7 +27,7 @@ export default function Intro() {
           className="max-w-sm m-8 leading-7 text-wedding-dark/75"
         >
           <b className="font-bold">Hora:</b> <br />
-          5:00 p. m
+          5:00 p. m.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 18 }}
@@ -56,7 +56,7 @@ export default function Intro() {
           rel="noreferrer"
           className="flex justify-center gap-2 py-3 mt-6 text-white transition rounded-lg justify-center1/12 bg-wedding-dark hover:bg-wedding-dark/90"
         >
-          Ver ubicación de la ceremonia{" "}
+          Ver ubicación de la recepción{" "}
           <Image
             src={Map_marker}
             alt="icono map marker"

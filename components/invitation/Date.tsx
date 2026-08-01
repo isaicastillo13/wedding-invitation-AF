@@ -51,7 +51,7 @@ export default function DateSection() {
   );
 
   return (
-    <section className="flex flex-col items-center gap-3 m-8 text-center">
+    <section className="flex flex-col items-center gap-3 my-8 text-center">
       <h2>{formattedDate}</h2>
 
       <p className="gap-2 font-s">

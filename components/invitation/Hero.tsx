@@ -30,7 +30,7 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mt-4 text-5xl leading-tight tracking-wide"
           >
-            Maria Alejandra <br /> y <br /> Franklin
+            María Alejandra <br /> y <br /> Franklin
           </motion.h1>
         </div>
       </section>

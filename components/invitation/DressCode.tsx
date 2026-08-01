@@ -15,7 +15,7 @@ export default function Intro() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25, duration: 0.7 }}
-          className="max-w-sm m-8 leading-7 text-wedding-dark/75"
+          className="max-w-sm my-8 leading-7 text-wedding-dark/75"
         >
           Codigo de vestimenta
         </motion.h2>
@@ -24,7 +24,7 @@ export default function Intro() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25, duration: 0.7 }}
-          className="max-w-sm m-8 leading-7 text-wedding-dark/75"
+          className="max-w-sm my-8 leading-7 text-wedding-dark/75"
         >
           Traje formal
         </motion.p>
@@ -40,7 +40,7 @@ export default function Intro() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25, duration: 0.7 }}
-          className="max-w-sm m-8 leading-7 text-wedding-dark/75"
+          className="max-w-sm my-8 leading-7 text-wedding-dark/75"
         >
           Con cariño reservamos los siguientes colores para la novia y el cortejo
         </motion.p>

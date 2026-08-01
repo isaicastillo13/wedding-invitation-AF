@@ -27,7 +27,7 @@ export default function Intro() {
           className="max-w-sm m-8 leading-7 text-wedding-dark/75"
         >
           <b className="font-bold">Hora:</b> <br />
-          2:45 p. m
+          2:45 p. m.
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 18 }}
